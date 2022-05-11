@@ -14,7 +14,9 @@ def read_temp():
     file = open(FILE, 'r')
     lines = file.readlines()
     file.close()
-    return lines
+    temp = lines[0].rstrip("\n")
+    temp = float(temp) / 1000
+    return temp
 
-print(read_temp())
+
 
