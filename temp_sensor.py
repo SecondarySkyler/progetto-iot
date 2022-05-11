@@ -1,8 +1,8 @@
 import os
 import glob #usefull for search directory with jolly * character
 
-#os.system('modprobe w1-gpio')
-#os.system('modprobe w1-therm')
+os.system('modprobe w1-gpio')
+os.system('modprobe w1-therm')
 
 BASE_DIR = '/sys/bus/w1/devices/'
 SENSOR_DIR = glob.glob(BASE_DIR + '28*')[0]
