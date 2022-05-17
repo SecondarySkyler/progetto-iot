@@ -6,7 +6,7 @@ import utils
 
 SHUTDOWN = False
 
-client = InfluxDBClient(host = 'localhost', port = 8086, user = 'python', password = 'pass')
+client = InfluxDBClient(host = 'localhost', port = 8086, username = 'python', password = 'pass')
 
 data = []
 
