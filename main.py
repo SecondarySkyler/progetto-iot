@@ -1,6 +1,7 @@
 from influxdb import InfluxDBClient
 import time
 import temp_sensor
+import turbidity_sensor
 import utils
 
 SHUTDOWN = False
@@ -11,8 +12,9 @@ data = []
 
 while not SHUTDOWN:
    temp = temp_sensor.read_temp()
-   data.append(utils.parse_json('Temperatura', 'gradi', 20))
-   data.append(utils.parse_json('Torbidità', 'ntu', 0.5))
+   turb = turbidity_sensor.read_turbidity()
+   data.append(utils.parse_json('Temperatura', 'gradi', temp))
+   data.append(utils.parse_json('Torbidità', 'ntu', turb))
    data.append(utils.parse_json('pH', 'pH', 5))
    data.append(utils.parse_json('TDS', 'residuo fisso', 23))
    

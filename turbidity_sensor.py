@@ -10,7 +10,16 @@ ads = ADS.ADS1115(i2c)
 
 analog_channel = AnalogIn(ads, ADS.P0)
 
-while True:
-    print(analog_channel.value, analog_channel.voltage)
-    time.sleep(3)
+
+def read_turbidity():
+    turbidity = analog_channel.voltage
+    round(turbidity, 2)
+    ntu = get_ntu(turbidity)
+    return ntu
+
+
+def get_ntu(voltage):
+    ntu = -1120.4 * Math.sqrt(voltage) + 5742.3 * voltage - 4352.9
+    return ntu
+
 
