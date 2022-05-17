@@ -14,7 +14,7 @@ while not SHUTDOWN:
    temp = temp_sensor.read_temp()
    turb = turbidity_sensor.read_turbidity()
    data.append(utils.parse_json('Temperatura', 'gradi', temp))
-   data.append(utils.parse_json('Torbidità', 'ntu', turb))
+   data.append(utils.parse_json('Torbidita', 'ntu', turb))
    data.append(utils.parse_json('pH', 'pH', 5))
    data.append(utils.parse_json('TDS', 'residuo fisso', 23))
    
