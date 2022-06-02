@@ -4,8 +4,16 @@ import temp_sensor
 import turbidity_sensor
 import tds_sensor
 import utils
+import signal
 
 SHUTDOWN = False
+
+def signal_handler():
+   global SHUTDOWN
+   SHUTDOWN = True
+   print('Exiting...')
+
+signal.signal(signal.SIGTERM, signal_handler)
 
 client = InfluxDBClient(host = 'localhost', port = 8086, username = 'python', password = 'pass')
 
