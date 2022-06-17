@@ -1,4 +1,5 @@
-FROM --platform=linux/arm main_py
+FROM main_py
+
 ENV DEBIAN_FRONTEND noninteractive
 
 WORKDIR /app
