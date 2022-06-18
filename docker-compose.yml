@@ -2,12 +2,16 @@ version: '3.9'
 services:
   influx:
     image: db
+    build: ./initdb
     ports:
       - "8086:8086"
     volumes:
       - influxdb:/var/lib/influxdb
   sensors:
     image: water_sens
+    build:
+      context: ./src
+      target: sensorimg
     init: true
     privileged: true
     devices:
