@@ -15,7 +15,7 @@ def signal_handler(signal,frame):
 
 signal.signal(signal.SIGINT, signal_handler)
 
-#client = InfluxDBClient(host = 'influx', port = 8086, username = 'python', password = 'python')
+client = InfluxDBClient(host = 'influx', port = 8086, username = 'python', password = 'python')
 
 
 while not SHUTDOWN:
@@ -24,7 +24,7 @@ while not SHUTDOWN:
    if(len(line)!=0):
       data= utils.parse_string(line)
       print(data)
-      #client.write_points(data, database = 'progetto', protocol = 'json')
+      client.write_points(data, database = 'progetto', protocol = 'json')
    
    
    time.sleep(5)
